@@ -54,4 +54,4 @@ This project is licensed under the [JVCKenwood Electronic Malaysia](http://my.jv
 ## Acknowledgments
 
   - Hat tip to anyone whose code is used
-  - Special thanks to everyone who ensure the success of this project. Hardi Sukoco & NorLiyana
+  - Special thanks to everyone who ensure the success of this project. Hardi Sukoco & Nuraini Liyana
