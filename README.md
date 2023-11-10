@@ -7,39 +7,51 @@ Excel VBA tools that prompt user for file path, filter, and generate histogram f
 <br />
 <br />
 
-Project Title
+# Project Title
+
 Data Analysis Tool for .KED data
 
-Getting Started
+## Getting Started
+
 Copy the folder and file on local disk.
 
-Prerequisites
+### Prerequisites
+
 Requirements to run the software
+1. Enable macro.
+-Open folder path containing the excel macro file (.xlsm) > Right click .xlsm > Open properties > Tick unblock (If doesnt done yet).
+-Open excel > Options > Trust Center > Trust Center Settings > Macro Settings > Tick Enable all macro and Truss access to the VBA project object model.
 
-Enable macro. -Open folder path containing the excel macro file (.xlsm) > Right click .xlsm > Open properties > Tick unblock (If doesnt done yet). -Open excel > Options > Trust Center > Trust Center Settings > Macro Settings > Tick Enable all macro and Truss access to the VBA project object model.
+## Running the tests
 
-Running the tests
-Click start button on main page. This will open a form.
-Select file.
-Filter by Lot if required.
-Filter by Status if required.
-Select which column to generate histogram.
+1. Click start button on main page. This will open a form.
+2. Select file.
+3. Filter by Lot if required.
+4. Filter by Status if required.
+5. Select which column to generate histogram.
 
-Deployment
+## Deployment
+
 Add additional notes to deploy this on a live system
 
-Built With
-Excel VBA Macro
+## Built With
 
-Versioning
-We use Github to keep the version change.
+  - Excel VBA Macro
 
-Authors
-Muhammad Safie bin Sijamsir - Github
 
-License
-This project is licensed under the JVCKenwood Electronic Malaysia
+## Versioning
 
-Acknowledgments
-Hat tip to anyone whose code is used
-Special thanks to everyone who ensure the success of this project. Hardi Sukoco & NorLiyana
+We use [Github](https://github.com/xhohoho/DataAnalysisTools) to keep the version change.
+
+## Authors
+
+  - **Muhammad Safie bin Sijamsir** - [Github](https://github.com/xhohoho/)
+
+## License
+
+This project is licensed under the [JVCKenwood Electronic Malaysia](http://my.jvckenwood.com/)
+
+## Acknowledgments
+
+  - Hat tip to anyone whose code is used
+  - Special thanks to everyone who ensure the success of this project. Hardi Sukoco & NorLiyana
