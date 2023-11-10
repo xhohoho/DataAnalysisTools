@@ -4,11 +4,9 @@ Public ws As Worksheet
 Public selectedFilter1 As String
 Public selectedFilter2 As String
 
-
 Private Sub ComboBox3_Change()
     ' Declare variables
     Dim selectedColumn As String
-    Dim ws As Worksheet
 
     ' Get the selected column from ComboBox3
     selectedColumn = UserForm1.ComboBox3.Value
@@ -17,6 +15,7 @@ Private Sub ComboBox3_Change()
     If selectedColumn <> "" Then
         ' Set the worksheet based on sheetname (adjust the sheet name if needed)
         Set ws = Worksheets(sheetname)
+        ws.Activate
 
         ' Clear existing conditional formatting from the entire worksheet
         ws.Cells.Interior.ColorIndex = xlNone
@@ -59,6 +58,9 @@ Private Sub CommandButton1_Click()
     ' Get the file path from the TextBox
     filePath = UserForm1.TextBox1.Text
 
+    ' Clear the existing worksheet reference
+    Set ws = Nothing
+
     ' Extract the filename from the file path
     sheetname = GetFileNameFromPath()
 
@@ -72,9 +74,8 @@ Private Sub CommandButton1_Click()
     ' Set "No Filter" as the default selection in ComboBox1 and ComboBox2
     UserForm1.ComboBox1.Value = "No Filter"
     UserForm1.ComboBox2.Value = "No Filter"
-    
-    
 End Sub
+
 
 Sub ParseCSVData()
     On Error Resume Next
@@ -193,6 +194,7 @@ Sub ClearData()
 End Sub
 
 Private Sub ComboBox1_Change()
+    ws.Activate
     ' Get the selected filters from both ComboBox1 and ComboBox2
     selectedFilter1 = UserForm1.ComboBox1.Text
     selectedFilter2 = UserForm1.ComboBox2.Text
@@ -206,6 +208,7 @@ End Sub
 
 Private Sub ComboBox2_Change()
     ' Get the selected filters from both ComboBox1 and ComboBox2
+    ws.Activate
     selectedFilter1 = UserForm1.ComboBox1.Text
     selectedFilter2 = UserForm1.ComboBox2.Text
 
@@ -217,6 +220,8 @@ Private Sub ComboBox2_Change()
 End Sub
 
 Sub FilterAndDisplayData(column1 As Long, column2 As Long)
+    ' Check if the active sheet is the specified sheetname
+    
     If Not ws Is Nothing Then
         Dim MyData As String
         Dim i As Long
@@ -246,7 +251,6 @@ Sub FilterAndDisplayData(column1 As Long, column2 As Long)
     End If
 End Sub
 
-
 Private Sub CommandButton3_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     Unload Me
 End Sub
@@ -273,6 +277,9 @@ Private Sub CommandButton4_Click()
         ' Set the destination sheet (adjust the sheet name if needed)
         Set destinationSheet = Worksheets("DAT")
 
+        ' Clear existing data in the specified destination range (B5:B154) on the DAT sheet
+        destinationSheet.Range("B5:B154").ClearContents
+
         ' Determine the last row with data in the selected column on the DAT sheet
         lastRowDestination = destinationSheet.Cells(destinationSheet.Rows.Count, selectedColumn).End(xlUp).Row
 
@@ -293,11 +300,10 @@ Private Sub CommandButton4_Click()
         ' Inform the user if no column is selected
         MsgBox "Please select a column first!", vbExclamation
     End If
-    
+
+    ' Show the UserForm in modeless form
     UserForm1.Show vbModeless
 End Sub
-
-
 
 
 
